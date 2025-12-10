@@ -43,7 +43,7 @@ header h1 {
     align-items: center;
     justify-content: center;
     height: 400px;
-    perspective: 1000px; /* 3D 효과 필수 */
+    perspective: 1000px; /* 3D 효과 */
 }
 
 .card-track {
@@ -121,7 +121,7 @@ header h1 {
 /* 3. 하단 설명 영역 */
 .game-details {
     margin-top: 50px;
-    height: 150px; /* 높이 고정 (글자 바뀔 때 덜컹거림 방지) */
+    height: 150px;
 }
 
 #game-title {
@@ -160,8 +160,8 @@ header h1 {
 .side-banner {
     position: fixed;
     right: 0;
-    top: 20%; /* 화면 위에서 20% 위치 */
-    transform: translateX(120px); /* 평소에는 숨김 */
+    top: 20%;
+    transform: translateX(120px); /* 평소 숨김 */
     
     background: linear-gradient(135deg, #ff416c, #ff4b2b);
     color: white;
@@ -178,10 +178,9 @@ header h1 {
     
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 100;
-    width: 160px; /* 전체 너비 */
+    width: 160px;
 }
 
-/* 깃발처럼 살짝 튀어나온 부분 */
 .side-banner::before {
     content: "◀";
     position: absolute;
@@ -191,11 +190,11 @@ header h1 {
 }
 
 .side-banner:hover {
-    transform: translateX(0); /* 마우스 올리면 전체 나옴 */
+    transform: translateX(0);
 }
 
 .side-banner:hover::before {
-    display: none; /* 나오면 화살표 숨김 */
+    display: none;
 }
 
 .banner-icon {
