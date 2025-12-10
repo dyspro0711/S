@@ -18,6 +18,12 @@ const games = [
         link: "https://dyspro08.github.io/cookie/",
         icon: "✨"
     }
+    {
+        title: "PROJECT V",  /* 게임 제목을 적어주세요 */
+        desc: "새로운 게임에 대한 설명을 여기에 적어주세요.", /* 게임 설명 */
+        link: "https://dyspro0711.github.io/V/",
+        icon: "🚀" /* 원하는 이모티콘이나 이미지로 변경하세요 */
+    }
 ];
 
 let currentIndex = 0;
