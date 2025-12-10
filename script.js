@@ -1,4 +1,4 @@
-// 게임 데이터 목록
+// 게임 데이터 목록 (총 4개)
 const games = [
     {
         title: "COOKIE TYCOON",
@@ -17,12 +17,12 @@ const games = [
         desc: "쿠키를 강화하여 전설 등급에 도전하세요!",
         link: "https://dyspro08.github.io/cookie/",
         icon: "✨"
-    }
+    },
     {
-        title: "PROJECT V",  /* 게임 제목을 적어주세요 */
-        desc: "새로운 게임에 대한 설명을 여기에 적어주세요.", /* 게임 설명 */
+        title: "YACHT DICE",
+        desc: "주사위 5개를 굴려 족보를 완성하는 전략 보드게임!",
         link: "https://dyspro0711.github.io/V/",
-        icon: "🚀" /* 원하는 이모티콘이나 이미지로 변경하세요 */
+        icon: "🎲"
     }
 ];
 
@@ -38,13 +38,12 @@ function init() {
         const card = document.createElement('div');
         card.className = 'game-card';
         
-        // 카드 클릭 이벤트 (가운데면 게임실행, 옆이면 이동)
+        // 카드 클릭 이벤트
         card.onclick = () => {
             if (index === currentIndex) window.open(game.link, '_blank');
             else updateSlider(index);
         };
 
-        // 아이콘 넣기 (나중에 이미지로 바꾸려면 여기를 수정)
         card.innerHTML = `<div>${game.icon}</div>`;
         track.appendChild(card);
     });
@@ -56,21 +55,21 @@ function updateSlider(index) {
     currentIndex = index;
     const cards = document.querySelectorAll('.game-card');
     
-    // 1. 모든 카드 초기화
+    // 1. 모든 카드 숨기기 및 초기화
     cards.forEach(card => card.className = 'game-card');
 
     // 2. 현재 카드 (Active)
     cards[currentIndex].classList.add('active');
     
-    // 3. 이전 카드 (Prev)
+    // 3. 이전 카드 (Prev) - 루프 계산
     const prevIndex = (currentIndex === 0) ? games.length - 1 : currentIndex - 1;
     cards[prevIndex].classList.add('prev');
 
-    // 4. 다음 카드 (Next)
+    // 4. 다음 카드 (Next) - 루프 계산
     const nextIndex = (currentIndex === games.length - 1) ? 0 : currentIndex + 1;
     cards[nextIndex].classList.add('next');
 
-    // 5. 텍스트 정보 업데이트 (페이드 효과를 위해 살짝 투명도 조절 가능)
+    // 5. 텍스트 정보 업데이트
     titleEl.textContent = games[currentIndex].title;
     descEl.textContent = games[currentIndex].desc;
     linkEl.href = games[currentIndex].link;
